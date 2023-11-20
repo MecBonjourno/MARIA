@@ -1,113 +1,173 @@
-import Image from 'next/image'
+"use client"
 
-export default function Home() {
+import Header from '@/components/Header';
+import WaveAnimation from '@/components/Wave'
+import TypingAnimation from '@/components/TypingAnimation'
+import WaveAnimation2 from '@/components/Wave2';
+import { FaWhatsapp, FaTelegram, FaGlobe, FaLock, FaUserShield, FaShieldAlt, FaHeartbeat } from 'react-icons/fa';
+import CapacidadesSection from '@/components/Capacities';
+import Script from 'next/script';
+
+const LandingPage: React.FC = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className="flex flex-col min-h-screen justify-center bg-slate-300">
+
+  <div className="container">
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-CCNJTMP0NM" />
+      <Script id="google-analytics">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+ 
+          gtag('config', 'G-CCNJTMP0NM');
+        `}
+      </Script>
+    </div>
+
+      <Header />
+      <main className="flex-grow">
+
+        <section className="relative h-screen flex items-center justify-center bg-gradient-to-b from-slate-200 to-teal-600 overflow-hidden ">
+          <WaveAnimation2 />
+          <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center p-4">
+            <TypingAnimation />
+          </div>
+        </section>
+
+<section className="flex items-center justify-center bg-gradient-to-b from-10% from-teal-600 via-80% to-green-400 to-95% text-gray-600 body-font" id="maria">
+  <div className="w-full px-8 py-24 flex flex-col items-center">
+    <WaveAnimation />
+    <div className="container mx-3">
+      <h2 className="text-5xl font-semibold text-white text-center">Conheça a MARIA</h2>
+      <p className="mt-4 mx-8 text-xl text-white text-center">
+        <span className='font-bold'>MARIA é a Inteligência Artificialde de saúde do povo brasileiro</span>, criada para garantir que todos os cidadãos tenham acesso imediato e de qualidade
+        a informações de saúde confiáveis e apoio, a qualquer hora do dia ou da noite. Utilizando tecnologia de ponta em 
+        Inteligência Artificial, MARIA funciona como um complemento poderoso ao Sistema Único de Saúde (SUS), oferecendo orientação e 
+        assistência imediatas, sem custo algum.
+              </p>
+              <div className='flex flex-col justify-center items-center'>
+              <div className="mt-8 ml-4">
+            <a href="#" className="inline-flex items-center bg-green-500 text-white hover:bg-green-700 font-bold uppercase text-sm px-5 py-3 rounded shadow hover:shadow-2xl outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-500"  type="button">
+              <FaWhatsapp size="2em" className="mr-2" />
+              Converse com a MARIA agora
+            </a>
+            </div>
+              <div className="mt-3 ml-4">
+            <a href="#" className="inline-flex items-center bg-blue-500 text-white hover:bg-blue-700 font-bold uppercase text-sm px-5 py-3 rounded shadow hover:shadow-2xl outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-500"  type="button">
+              <FaTelegram size="2em" className="mr-2" />
+              Converse com a MARIA agora
+            </a>
+              </div>
+                 <div className="mt-3 ml-4">
+            <a href="#" className="inline-flex items-center bg-slate-500 text-white hover:bg-slate-700 font-bold uppercase text-sm px-5 py-3 rounded shadow hover:shadow-2xl outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-500"  type="button">
+              <FaGlobe size="2em" className="mr-2" />
+              Converse com a MARIA agora
+            </a>
+                </div>
+                </div>
+    </div>
+  </div>
+</section>
+        
+<CapacidadesSection/>
+        
+<section id="privacidade" className="bg-gradient-to-b from-30% from-blue-400 via-80% to-green-50 to-95% py-32 ">
+  <div className="container mx-auto px-6 md:flex md:justify-between md:items-center">
+    <div className="md:w-1/2 lg:w-2/5 mb-8 md:mb-0">
+      <h2 className="text-5xl font-semibold text-white mb-6 mr-1">Segurança e Privacidade</h2>
+      <p className="px-2 text-xl text-slate-100">
+        Sua confiança sempre será prioridade. Investimos em tecnologia de ponta para manter cada uma de suas mensagens e conversas com a MARIA protegidas e privadas.
+      </p>
+    </div>
+    <div className="md:w-1/2 lg:w-3/5">
+      <div className="grid grid-cols-2 gap-4">
+        {/* Substitua essas divs por ícones ou ilustrações relevantes */}
+        <div className="bg-white p-6 rounded-lg shadow-lg">
+          <FaLock size="3em" className="text-green-500 mx-auto" />
+          <h3 className="text-lg font-semibold text-center mt-4 text-gray-600">Criptografia Potente</h3>
+          <p className="text-sm text-gray-600 text-center mt-2">
+            Todas as mensagens e conversas são criptografadas de ponta-a-ponta.
+          </p>
+        </div>
+        <div className="bg-white p-6 rounded-lg shadow-lg">
+          <FaUserShield size="3em" className="text-green-500 mx-auto" />
+          <h3 className="text-lg font-semibold text-center mt-4 text-gray-600">Anonimato e LGPD Garantidos</h3>
+          <p className="text-sm text-gray-600 text-center mt-2">
+            Seus dados nunca serão utilizados para treinar a MARIA, assim como não armazenamos ou providenciamos dados pessoais identificáveis.
+          </p>
+        </div>
+        <div className="bg-white p-6 rounded-lg shadow-lg">
+          <FaShieldAlt size="3em" className="text-green-500 mx-auto" />
+          <h3 className="text-lg font-semibold text-center mt-4 text-gray-600 ">Monitoramento Constante</h3>
+          <p className="text-sm text-gray-600 text-center mt-2">
+            Nossos sistemas são monitorados 24/7 para qualquer tentativa maliciosa ou tentativas de ataques a MARIA.
+          </p>
+        </div>
+        <div className="bg-white p-6 rounded-lg shadow-lg">
+          <FaHeartbeat size="3em" className="text-green-500 mx-auto" />
+          <h3 className="text-lg font-semibold text-center mt-4 text-gray-600">Compromisso com Você</h3>
+          <p className="text-sm text-gray-600 text-center mt-2">
+            A MARIA tem o compromisso de prover informação correta e de qualidade, garantindo segurança e satisfação.
+          </p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+
+
+{/* 
+        <section className="relative h-screen flex items-center justify-center overflow-hidden" id="sobre">
+            <AudioReactiveCircle />
+        </section> */}
+
+<section id="missao" className="text-center py-24 bg-green-50">
+  <div className="container mx-auto px-6">
+    <div className="flex flex-col md:flex-row justify-center items-center mb-6">
+      {/* Inserir aqui imagens/ilustrações representativas */}
+              <img className="w-1/3 h-1/2 mb-4 md:mb-0 md:mr-4 rounded-lg" src="/maria.png" alt="Imagem representativa" />
+              <div>
+    <h2 className="text-3xl font-semibold text-green-600 mb-4">A Missão da MARIA</h2>
+      <div className='mx-3'>
+        <p className="text-lg text-gray-600 font-medium">
+      Criada com o coração e a mente voltados para toda a população, a MARIA tem o objetivo de elevar o nível e democratizar o acesso à informação de saúde de qualidade para todo e qualquer cidadão brasileiro, independentemente de sua localização, recursos, etnia e/ou qualquer fator individual. Com a MARIA, é possível entragar em tempo recorde informação personalizada, adaptada a cada mensagem, usuário e situação, ajudando a esclarecer dúvidas e fornecendo orientações que podem ser critícas em situações de emergência e vitais no dia a dia da nossa população.
+    </p>
+        <p className="text-lg text-gray-600 mt-4 font-medium">
+          Embora MARIA utilize tecnologia avançada, ela complementa — mas não substitui — o cuidado médico profissional.
+          A IA possui suas limitações e, por isso, enfatizamos que as orientações da MARIA não substituem a avaliação médica profissional. Recomendamos sempre a confirmação das informações com um profissional de saúde qualificado, especialmente em situações críticas ou emergenciais.
+        </p>
       </div>
+              </div>
+              </div>
+            {/* CTA para interagir com a MARIA ou ler mais histórias */}
+            <div className='mt-4 flex flex-col justify-center items-center sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0'>
+<a href="#maria" className="bg-green-500 text-white font-bold py-2 px-6 rounded hover:bg-green-600 transition duration-300 ease-in-out">
+      Converse com a MARIA
+    </a>
+    {/* Alternativamente, um link para uma página com histórias de usuários */}
+    <a href="#" className="text-green-600 font-bold py-2 px-6 rounded hover:underline transition duration-300 ease-in-out ml-4">
+      Histórias de Sucesso
+    </a>
+            </div>
+  </div>
+</section>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+        
+      </main>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
+      <footer className="text-center text-gray-600 body-font">
+        <div className="container px-5 py-5 mx-auto">
+          <p className="text-sm text-gray-500">
+            © 2023 MARIA Project — 
+            <a href="#" className="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank"> Alpha Phase Development</a>
           </p>
-        </a>
+            <a href="https://www.linkedin.com/in/guilhermezago1/" className="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">Made with the best intentions, by Guilherme Zago</a>
+        </div>
+      </footer>
+    </div>
+  );
+};
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
-}
+export default LandingPage;
