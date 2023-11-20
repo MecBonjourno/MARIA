@@ -1,0 +1,17 @@
+/* Styles for screens smaller than 768px */
+@media screen and (max-width: 768px) {
+  .header .container {
+    padding: 3px; /* Reduced padding */
+  }
+  
+  .header svg {
+    width: 8px; /* Smaller icon */
+    height: 8px;
+  }
+  
+  .header .text-xl {
+    font-size: 0.75rem; /* Smaller text */
+  }
+  
+  /* Add additional styling as needed */
+}
