@@ -30,7 +30,7 @@ const LandingPage: React.FC = () => {
 
         <section className="relative h-screen flex items-center justify-center bg-gradient-to-b from-slate-200 to-teal-600 overflow-hidden ">
           <WaveAnimation2 />
-          <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center p-4">
+          <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center p-4 text-white">
             <TypingAnimation />
           </div>
         </section>

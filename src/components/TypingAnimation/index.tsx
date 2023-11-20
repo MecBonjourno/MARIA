@@ -37,7 +37,7 @@ const TypingAnimation: React.FC = () => {
   }, [charIndex, messageIndex]);
 
   return (
-    <div className="typing-animation text-4xl font-medium drop-shadow-2xl">
+    <div className="typing-animation text-4xl font-medium drop-shadow-2xl text-white">
       {visibleMessage}
       <span className="cursor">|</span> {/* O cursor de digitação */}
     </div>
