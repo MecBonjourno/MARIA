@@ -40,3 +40,9 @@ body {
 .animate-fade-in-up {
   animation: fade-in-up 1s ease-out;
 }
+
+.disabled-link {
+    color: #a0a0a0; /* Cor esmaecida */
+    cursor: not-allowed; /* Cursor de 'não permitido' */
+    pointer-events: none; /* Desativa a interatividade */
+}
