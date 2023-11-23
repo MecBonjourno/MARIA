@@ -48,19 +48,19 @@ const LandingPage: React.FC = () => {
               </p>
               <div className='flex flex-col justify-center items-center'>
               <div className="mt-8 ml-4">
-            <a href="#" className="inline-flex items-center bg-green-500 text-white hover:bg-green-700 font-bold uppercase text-sm px-5 py-3 rounded shadow hover:shadow-2xl outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-500"  type="button">
+            <a href="#" className="inline-flex items-center bg-green-500 text-white hover:bg-green-700 font-bold uppercase text-sm px-5 py-3 rounded shadow hover:shadow-2xl outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-500 disabled-link" type="button" >
               <FaWhatsapp size="2em" className="mr-2" />
               Converse com a MARIA agora
             </a>
             </div>
               <div className="mt-3 ml-4">
-            <a href="#" className="inline-flex items-center bg-blue-500 text-white hover:bg-blue-700 font-bold uppercase text-sm px-5 py-3 rounded shadow hover:shadow-2xl outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-500"  type="button">
+            <a href="#" className="inline-flex items-center bg-blue-500 text-white hover:bg-blue-700 font-bold uppercase text-sm px-5 py-3 rounded shadow hover:shadow-2xl outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-500 disabled-link"  type="button">
               <FaTelegram size="2em" className="mr-2" />
               Converse com a MARIA agora
             </a>
               </div>
                  <div className="mt-3 ml-4">
-            <a href="#" className="inline-flex items-center bg-slate-500 text-white hover:bg-slate-700 font-bold uppercase text-sm px-5 py-3 rounded shadow hover:shadow-2xl outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-500"  type="button">
+            <a href="#" className="inline-flex items-center bg-slate-500 text-white hover:bg-slate-700 font-bold uppercase text-sm px-5 py-3 rounded shadow hover:shadow-2xl outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-500 disabled-link"  type="button">
               <FaGlobe size="2em" className="mr-2" />
               Converse com a MARIA agora
             </a>
@@ -143,11 +143,11 @@ const LandingPage: React.FC = () => {
               </div>
             {/* CTA para interagir com a MARIA ou ler mais histórias */}
             <div className='mt-4 flex flex-col justify-center items-center sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0'>
-<a href="#maria" className="bg-green-500 text-white font-bold py-2 px-6 rounded hover:bg-green-600 transition duration-300 ease-in-out">
+<a href="#maria" className="bg-green-500 text-white font-bold py-2 px-6 rounded hover:bg-green-600 transition duration-300 ease-in-out disabled-link">
       Converse com a MARIA
     </a>
     {/* Alternativamente, um link para uma página com histórias de usuários */}
-    <a href="#" className="text-green-600 font-bold py-2 px-6 rounded hover:underline transition duration-300 ease-in-out ml-4">
+    <a href="#" className="text-green-600 font-bold py-2 px-6 rounded hover:underline transition duration-300 ease-in-out ml-4 disabled-link">
       Histórias de Sucesso
     </a>
             </div>

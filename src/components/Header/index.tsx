@@ -18,7 +18,7 @@ const Header: React.FC = () => {
           <a className="mr-5 hover:text-green-600 transition-colors duration-300" href="#privacidade">Segurança e Privacidade</a>
           <a className="hover:text-green-600 transition-colors duration-300" href="#missao">A Missão</a>
         </nav>
-        <button className="inline-flex items-center text-white bg-green-500 border-0 py-2 px-4 mx-3 my-2 focus:outline-none hover:bg-green-600 rounded text-base transition-colors duration-400">
+        <button className="inline-flex items-center text-white bg-green-500 border-0 py-2 px-4 mx-3 my-2 focus:outline-none hover:bg-green-600 rounded text-base transition-colors duration-400 disabled-link">
             <FaWhatsapp size="1em" className="mr-1" />
               Converse com a MARIA agora
         </button>
