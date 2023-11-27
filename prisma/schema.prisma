@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model BotResponse {
+  id           String    @id
+  messageId    String
+  chatId       String
+  assistantId  String
+  content      String
+  responseType String
+  threadId     String
+  sentAt       DateTime  @default(now())
+  UserState    UserState @relation(fields: [chatId], references: [chatId], onDelete: Cascade)
+  Message      Message   @relation(fields: [messageId], references: [id], onDelete: Cascade)
+}
+
+model Message {
+  id          String        @id
+  chatId      String
+  content     String
+  messageType String
+  receivedAt  DateTime      @default(now())
+  threadId    String
+  BotResponse BotResponse[]
+  UserState   UserState     @relation(fields: [chatId], references: [chatId], onDelete: Cascade)
+}
+
+model UserState {
+  chatId        String        @id
+  messageCount  Int           @default(0)
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime
+  threadId      String?
+  isOnCooldown  Boolean       @default(false)
+  rateLimit     Int           @default(0)
+  cooldownCount Int           @default(0)
+  acceptedTerms Boolean       @default(false)
+  BotResponse   BotResponse[]
+  Message       Message[]
+}
+
+model Feedback {
+  feedbackid     String    @id @default(uuid())
+  username       String?
+  phonenumber    String?
+  useremail      String?
+  content        String
+  createdat      DateTime? @default(now()) @db.Timestamptz(6)
+  reachratelimit Boolean
+  wannahelp      Boolean
+}
