@@ -1,35 +1,35 @@
-import React from 'react';
-import { motion, Variants } from 'framer-motion';
+import React from 'react'
+import { motion, Variants } from 'framer-motion'
 
 // Definindo a tipagem para os variants
 const waveVariants: Variants = {
-  initial: {
-    scale: 0.8,
-    opacity: 0,
-  },
-  animate: {
-    scale: 1,
-    opacity: 1,
-    transition: {
-      duration: 3,
-      ease: "easeInOut",
-      repeat: Infinity,
-      repeatType: "reverse"
-    }
-  }
-};
+	initial: {
+		scale: 0.8,
+		opacity: 0,
+	},
+	animate: {
+		scale: 1,
+		opacity: 1,
+		transition: {
+			duration: 3,
+			ease: 'easeInOut',
+			repeat: Infinity,
+			repeatType: 'reverse',
+		},
+	},
+}
 
 const WaveAnimation: React.FC = () => {
-  return (
-    <motion.img
-      src="./orb.gif" // Use o caminho como uma string literal
-      alt="Ondas calmantes"
-      variants={waveVariants}
-      initial="initial"
-      animate="animate"
-      className="wave-container"
-    />
-  );
-};
+	return (
+		<motion.img
+			src="./orb.gif" // Use o caminho como uma string literal
+			alt="Ondas calmantes"
+			variants={waveVariants}
+			initial="initial"
+			animate="animate"
+			className="wave-container"
+		/>
+	)
+}
 
-export default WaveAnimation;
+export default WaveAnimation
