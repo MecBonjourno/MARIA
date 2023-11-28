@@ -14,10 +14,58 @@
 .disclaimer-content {
   background-color: white;
   padding: 20px;
-  width: 90%;
-  max-width: 800px;
-  border-radius: 10px;
+  width: 100%;
+  max-width: 1200px;
+  max-height: 650px;
+  border-radius: 12px;
   text-align: center;
+  font-size: x-large;
+  background-color: white; /* Ou outra cor de fundo */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  overflow: scroll;
 }
 
-/* Adicione mais estilos conforme necessário */
+.disclaimer-content::-webkit-scrollbar {
+  display: none;
+}
+
+.modal-title {
+  font-size: 1.5rem; /* Tamanho da fonte do título */
+  margin-bottom: 1rem;
+}
+
+.modal-text {
+  font-size: 1rem; /* Tamanho da fonte do texto */
+  margin-bottom: 1rem;
+}
+
+.modal-list {
+  margin-bottom: 2rem;
+}
+
+.modal-button {
+  /* Estilos existentes */
+  padding: 0.5rem 1rem; /* Preenchimento do botão */
+}
+
+
+@media (max-width: 600px) {
+    .disclaimer-modal {
+        height: 100%;
+    }
+
+  .disclaimer-content {
+    width: 90%; /* Largura para dispositivos móveis */
+    
+  }
+
+  .modal-title, .modal-text {
+    font-size: smaller; /* Tamanho da fonte menor para dispositivos móveis */
+  }
+}
+
+@-moz-document url-prefix() {
+  .disclaimer-content {
+    scrollbar-width: none; /* Esconde a barra de rolagem no Firefox */
+  }
+}
