@@ -13,7 +13,8 @@ export async function POST(req: NextRequest) {
                 useremail: data.userEmail,
                 content: data.content,
                 reachratelimit: data.reachRateLimit,
-                wannahelp: data.wannaHelp
+                wannahelp: data.wannaHelp,
+                wannacommunication: data.wannaCommunication
             }
         });
         return NextResponse.json({message: "Succesfully saved feedback", status: 201});
