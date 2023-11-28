@@ -1,134 +1,63 @@
-// import React, { useEffect, useRef, useState } from 'react';
-
-// const AudioReactiveCircle: React.FC = () => {
-//   const [audioData, setAudioData] = useState(new Uint8Array());
-//   const animFrame = useRef<number>();
-//   const analyser = useRef<AnalyserNode | null>(null); // Inicializado como null
-//   const audioContext = useRef<AudioContext | null>(null); // Inicializado como null
-
-//   const setupAudio = async () => {
-//     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-//       try {
-//         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-//         const audioCtx = new AudioContext();
-//         const analyserNode = audioCtx.createAnalyser();
-//         analyserNode.fftSize = 256;
-//         const source = audioCtx.createMediaStreamSource(stream);
-
-//         source.connect(analyserNode);
-//         analyser.current = analyserNode;
-//         audioContext.current = audioCtx;
-//         captureAudio();
-//       } catch (err) {
-//         console.error(err);
-//       }
-//     }
-//   };
-
-//   useEffect(() => {
-//     setupAudio();
-
-//     return () => {
-//       if (animFrame.current) cancelAnimationFrame(animFrame.current);
-//       if (audioContext.current) audioContext.current.close();
-//     };
-//   }, []);
-
-//   const captureAudio = () => {
-//     if (analyser.current) {
-//       animFrame.current = requestAnimationFrame(captureAudio);
-
-//       const dataArray = new Uint8Array(analyser.current.frequencyBinCount);
-//       analyser.current.getByteFrequencyData(dataArray);
-//       setAudioData(dataArray);
-
-//       const maxSize = 220;
-//       const size = dataArray.reduce((acc, val) => acc + val, 0) / dataArray.length / 255 * maxSize;
-
-//       const circle = document.getElementById('reactive-circle');
-//       if (circle) {
-//         circle.style.width = `${size}px`;
-//         circle.style.height = `${size}px`;
-//       }
-//     }
-//   };
-
-//   return (
-//     <div id="reactive-circle" style={{
-//       width: '100px',
-//       height: '100px',
-//       borderRadius: '50%',
-//       backgroundColor: 'pink',
-//       transition: 'width 0.1s, height 0.1s'
-//     }}>
-//       {/* O círculo aqui vai crescer e encolher baseado no áudio capturado */}
-//     </div>
-//   );
-// };
-
-// export default AudioReactiveCircle;
-
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react'
 
 const AudioReactiveCircle: React.FC = () => {
-  const [circleSize, setCircleSize] = useState(50); // Tamanho mínimo inicial do círculo
-  const animFrame = useRef<number>();
-  const analyser = useRef<AnalyserNode | null>(null);
-  const audioContext = useRef<AudioContext | null>(null);
+	const [circleSize, setCircleSize] = useState(50) // Tamanho mínimo inicial do círculo
+	const animFrame = useRef<number>()
+	const analyser = useRef<AnalyserNode | null>(null)
+	const audioContext = useRef<AudioContext | null>(null)
 
-  const setupAudio = async () => {
-    const audioCtx = new AudioContext();
-    const analyserNode = audioCtx.createAnalyser();
-    analyserNode.fftSize = 256;
-    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-    const source = audioCtx.createMediaStreamSource(stream);
+	const setupAudio = async () => {
+		const audioCtx = new AudioContext()
+		const analyserNode = audioCtx.createAnalyser()
+		analyserNode.fftSize = 256
+		const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
+		const source = audioCtx.createMediaStreamSource(stream)
 
-    source.connect(analyserNode);
-    analyser.current = analyserNode;
-    audioContext.current = audioCtx;
+		source.connect(analyserNode)
+		analyser.current = analyserNode
+		audioContext.current = audioCtx
 
-    captureAudio();
-  };
+		captureAudio()
+	}
 
-  const captureAudio = () => {
-    if (analyser.current) {
-      animFrame.current = requestAnimationFrame(captureAudio);
+	const captureAudio = () => {
+		if (analyser.current) {
+			animFrame.current = requestAnimationFrame(captureAudio)
 
-      const dataArray = new Uint8Array(analyser.current.frequencyBinCount);
-      analyser.current.getByteFrequencyData(dataArray);
+			const dataArray = new Uint8Array(analyser.current.frequencyBinCount)
+			analyser.current.getByteFrequencyData(dataArray)
 
-      // Calcule o tamanho do círculo com base no volume do som
-      const maxVolume = 128; // Valor máximo de volume para normalização
-      const volume = dataArray.reduce((acc, val) => acc + val, 0) / dataArray.length;
-      const normalizedVolume = (volume / maxVolume) * 100; // Normaliza o volume para um valor entre 0 e 100
-      const minSize = 50; // Tamanho mínimo do círculo
-      const size = minSize + normalizedVolume;
+			// Calcule o tamanho do círculo com base no volume do som
+			const maxVolume = 128 // Valor máximo de volume para normalização
+			const volume = dataArray.reduce((acc, val) => acc + val, 0) / dataArray.length
+			const normalizedVolume = (volume / maxVolume) * 100 // Normaliza o volume para um valor entre 0 e 100
+			const minSize = 50 // Tamanho mínimo do círculo
+			const size = minSize + normalizedVolume
 
-      setCircleSize(size); // Atualiza o estado do tamanho do círculo
-    }
-  };
+			setCircleSize(size) // Atualiza o estado do tamanho do círculo
+		}
+	}
 
-  useEffect(() => {
-    setupAudio();
+	useEffect(() => {
+		setupAudio()
 
-    return () => {
-      if (animFrame.current) cancelAnimationFrame(animFrame.current);
-      if (audioContext.current) audioContext.current.close();
-    };
-  }, []);
+		return () => {
+			if (animFrame.current) cancelAnimationFrame(animFrame.current)
+			if (audioContext.current) audioContext.current.close()
+		}
+	}, [])
 
-  return (
-    <div
-      style={{
-        width: `${circleSize}px`,
-        height: `${circleSize}px`,
-        borderRadius: '50%',
-        backgroundColor: 'pink',
-        transition: 'width 0.1s, height 0.1s'
-      }}
-    />
-  );
-};
+	return (
+		<div
+			style={{
+				width: `${circleSize}px`,
+				height: `${circleSize}px`,
+				borderRadius: '50%',
+				backgroundColor: 'pink',
+				transition: 'width 0.1s, height 0.1s',
+			}}
+		/>
+	)
+}
 
-export default AudioReactiveCircle;
-
+export default AudioReactiveCircle
