@@ -5,6 +5,7 @@ import Header from '@/components/Header'
 import { FaPaperPlane } from 'react-icons/fa'
 import Footer from '@/components/Footer'
 import Script from 'next/script'
+import FeedbackConfirmationModal from '@/components/FeedbackConfirmationModal'
 
 const FeedbackPage: React.FC = () => {
 	const [feedback, setFeedback] = useState({
@@ -16,6 +17,7 @@ const FeedbackPage: React.FC = () => {
 		wannaHelp: false,
 		wannaCommunication: false,
 	})
+	const [isFeedbackModalOpen, setIsFeedbackModalOpen] = useState(false);
 
 	const handleChange = (e: { target: { name: any; value: any; type: any; checked: any } }) => {
 		const { name, value, type, checked } = e.target
@@ -39,11 +41,16 @@ const FeedbackPage: React.FC = () => {
 				body: JSON.stringify(feedback),
 			})
 
-			window.alert('Thank you for your feedback!')
+			setIsFeedbackModalOpen(true);
+			
 		} catch (error) {
 			console.error('Erro ao enviar feedback: ', error)
 		}
 	}
+
+	const handleCloseModal = () => {
+  setIsFeedbackModalOpen(false);
+};
 
 	return (
 		<div className="flex flex-col min-h-screen justify-center bg-slate-300">
@@ -177,6 +184,7 @@ const FeedbackPage: React.FC = () => {
 									</button>
 								</div>
 							</form>
+							<FeedbackConfirmationModal isOpen={isFeedbackModalOpen} />
 						</div>
 					</div>
 				</section>
