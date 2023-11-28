@@ -8,6 +8,7 @@ import { FaWhatsapp, FaTelegram, FaGlobe, FaLock, FaUserShield, FaShieldAlt, FaH
 import CapacidadesSection from '@/components/Capacities'
 import Script from 'next/script'
 import Footer from '@/components/Footer'
+import Disclaimer from '@/components/Disclaimer'
 
 const LandingPage: React.FC = () => {
 	return (
@@ -25,6 +26,7 @@ const LandingPage: React.FC = () => {
 				</Script>
 			</div>
 			<Header />
+			<Disclaimer />
 			<main className="flex-grow">
 				<section className="relative h-screen flex items-center justify-center bg-gradient-to-b from-slate-200 to-teal-600 overflow-hidden ">
 					<WaveAnimation2 />
