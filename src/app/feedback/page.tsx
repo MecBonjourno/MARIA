@@ -14,6 +14,7 @@ const FeedbackPage: React.FC = () => {
 		content: '',
 		reachRateLimit: false,
 		wannaHelp: false,
+		wannaCommunication: false,
 	})
 
 	const handleChange = (e: { target: { name: any; value: any; type: any; checked: any } }) => {
@@ -28,6 +29,7 @@ const FeedbackPage: React.FC = () => {
 
 	const handleSubmit = async (e: { preventDefault: () => void }) => {
 		e.preventDefault()
+		console.log(feedback)
 		try {
 			await fetch('/api/feedback', {
 				method: 'POST',
@@ -57,21 +59,35 @@ const FeedbackPage: React.FC = () => {
           `}
 				</Script>
 			</div>
-			<Header />
+			{/* CRIAR SMALL HEADER */}
 			<main className="flex-grow">
 				<section className="text-gray-600 body-font">
 					<div className="container mx-auto w-full px-5">
-						<div className="bg-white rounded-lg p-10 my-8 shadow-md">
-							<h1 className="text-gray-900 text-lg font-bold title-font mb-5 flex flex-col items-center justify-center">
+						<div className="bg-white rounded-lg p-8 my-8 shadow-md">
+							<h1 className="text-gray-900 text-4xl font-bold title-font mb-5 flex flex-col items-center justify-center text-center">
 								MARIA Public Alpha
 							</h1>
-							<h2 className="text-gray-900 text-lg font-medium title-font mb-5 flex flex-col items-center justify-center">
+							<h2 className="text-black text-2xl font-medium title-font mb-5 flex flex-col items-center justify-center text-center">
 								Formulário de feedback
 							</h2>
+							<h3 className="text-center text-lg text-black">
+								Obrigado por fazer parte do projeto MARIA, você esta ajudando a fornecer informações de qualidade e de
+								acesso imediato para todo o Brasil! Espero que ela tenha ajudado!
+							</h3>
+							<br></br>
+							<p className="text-black">
+								Este formulário é essencial para aprimorar o funcionamento da MARIA. Sua contribuição é duplamente
+								valiosa para nós.
+							</p>
+							<p className="text-black">
+								Se desejar, mantenha-se anônimo. Aqui, você pode expressar opiniões, fazer críticas, agradecer, ou
+								reportar falhas (bugs). O preenchimento é rápido, menos de 1 minuto!
+							</p>
+							<br></br>
 							<form>
 								<div className="relative mb-4">
 									<label htmlFor="username" className="leading-7 text-sm text-gray-600">
-										Username (Opcional)
+										Seu nome (Opcional)
 									</label>
 									<input
 										onChange={handleChange}
@@ -84,7 +100,7 @@ const FeedbackPage: React.FC = () => {
 
 								<div className="relative mb-4">
 									<label htmlFor="phoneNumber" className="leading-7 text-sm text-gray-600">
-										Telefone (Opcional)
+										Telefone Utilizado (Opcional)
 									</label>
 									<input
 										onChange={handleChange}
@@ -97,7 +113,7 @@ const FeedbackPage: React.FC = () => {
 
 								<div className="relative mb-4">
 									<label htmlFor="userEmail" className="leading-7 text-sm text-gray-600">
-										E-mail (Opcional)
+										E-mail (Opcional, não manderemos nada sem sua autorização!)
 									</label>
 									<input
 										onChange={handleChange}
@@ -110,7 +126,7 @@ const FeedbackPage: React.FC = () => {
 
 								<div className="relative mb-4">
 									<label htmlFor="content" className="leading-7 text-sm text-gray-600">
-										Conteúdo
+										Relato
 									</label>
 									<textarea
 										id="content"
@@ -130,7 +146,7 @@ const FeedbackPage: React.FC = () => {
 										className="mr-2"
 									/>
 									<label htmlFor="reachRateLimit" className="leading-7 text-sm text-gray-600">
-										Alcançou limite de uso?
+										Chegou ao limite de uso?
 									</label>
 								</div>
 								<div className="relative mb-4 flex items-center">
@@ -139,14 +155,27 @@ const FeedbackPage: React.FC = () => {
 										Deseja ajudar o projeto?
 									</label>
 								</div>
-
-								<button
-									className="flex text-white bg-teal-500 border-0 py-2 px-6 focus:outline-none hover:bg-teal-600 rounded text-lg"
-									onClick={handleSubmit}
-								>
-									<FaPaperPlane size="1em" className="mr-2 my-auto" />
-									Enviar
-								</button>
+								<div className="relative mb-4 flex items-center">
+									<input
+										onChange={handleChange}
+										type="checkbox"
+										id="wannaCommunication"
+										name="wannaCommunication"
+										className="mr-2"
+									/>
+									<label htmlFor="wannaCommunication" className="leading-7 text-sm text-gray-600">
+										Quer receber futuras informações sobre o projeto?
+									</label>
+								</div>
+								<div className="flex items-center justify-center">
+									<button
+										className="flex text-white bg-teal-500 border-0 py-2 px-6 focus:outline-none hover:bg-teal-600 rounded text-lg"
+										onClick={handleSubmit}
+									>
+										<FaPaperPlane size="1em" className="mr-2 my-auto" />
+										Enviar
+									</button>
+								</div>
 							</form>
 						</div>
 					</div>
