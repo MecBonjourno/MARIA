@@ -5,7 +5,7 @@ import Header from '@/components/Header'
 import { FaPaperPlane } from 'react-icons/fa'
 import Footer from '@/components/Footer'
 import Script from 'next/script'
-import FeedbackConfirmationModal from '@/components/FeedbackConfirmationModal'
+import FeedbackModal, { ModalState } from '@/components/FeedbackModal'
 
 const FeedbackPage: React.FC = () => {
 	const [feedback, setFeedback] = useState({
@@ -17,7 +17,8 @@ const FeedbackPage: React.FC = () => {
 		wannaHelp: false,
 		wannaCommunication: false,
 	})
-	const [isFeedbackModalOpen, setIsFeedbackModalOpen] = useState(false);
+
+	const [currentModalState, setCurrentModalState] = useState(ModalState.None)
 
 	const handleChange = (e: { target: { name: any; value: any; type: any; checked: any } }) => {
 		const { name, value, type, checked } = e.target
@@ -31,7 +32,22 @@ const FeedbackPage: React.FC = () => {
 
 	const handleSubmit = async (e: { preventDefault: () => void }) => {
 		e.preventDefault()
-		console.log(feedback)
+
+		if (!feedback.content.trim()) {
+			setCurrentModalState(ModalState.BlankState)
+			return
+		}
+
+		if (feedback.wannaCommunication && !feedback.userEmail.trim() && !feedback.phoneNumber.trim()) {
+			setCurrentModalState(ModalState.CommunicationError)
+			return
+		}
+
+		if (feedback.wannaHelp && !feedback.userEmail.trim() && !feedback.phoneNumber.trim()) {
+			setCurrentModalState(ModalState.HelpError)
+			return
+		}
+
 		try {
 			await fetch('/api/feedback', {
 				method: 'POST',
@@ -41,16 +57,15 @@ const FeedbackPage: React.FC = () => {
 				body: JSON.stringify(feedback),
 			})
 
-			setIsFeedbackModalOpen(true);
-			
+			setCurrentModalState(ModalState.Confirmation)
 		} catch (error) {
 			console.error('Erro ao enviar feedback: ', error)
 		}
 	}
 
 	const handleCloseModal = () => {
-  setIsFeedbackModalOpen(false);
-};
+		setCurrentModalState(ModalState.None)
+	}
 
 	return (
 		<div className="flex flex-col min-h-screen justify-center bg-slate-300">
@@ -66,7 +81,7 @@ const FeedbackPage: React.FC = () => {
           `}
 				</Script>
 			</div>
-			{/* CRIAR SMALL HEADER */}
+			<Header />
 			<main className="flex-grow">
 				<section className="text-gray-600 body-font">
 					<div className="container mx-auto w-full px-5">
@@ -153,13 +168,13 @@ const FeedbackPage: React.FC = () => {
 										className="mr-2"
 									/>
 									<label htmlFor="reachRateLimit" className="leading-7 text-sm text-gray-600">
-										Chegou ao limite de uso?
+										Chegou ao limite de mensagens?
 									</label>
 								</div>
 								<div className="relative mb-4 flex items-center">
 									<input onChange={handleChange} type="checkbox" id="wannaHelp" name="wannaHelp" className="mr-2" />
 									<label htmlFor="wannaHelp" className="leading-7 text-sm text-gray-600">
-										Deseja ajudar o projeto?
+										Deseja ajudar o projeto? (Disponibilizando-se a testar e ajudar no desenvolvimento da ferramenta)
 									</label>
 								</div>
 								<div className="relative mb-4 flex items-center">
@@ -184,7 +199,7 @@ const FeedbackPage: React.FC = () => {
 									</button>
 								</div>
 							</form>
-							<FeedbackConfirmationModal isOpen={isFeedbackModalOpen} />
+							<FeedbackModal modalState={currentModalState} onClose={handleCloseModal} />
 						</div>
 					</div>
 				</section>

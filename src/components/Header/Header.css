@@ -4,14 +4,8 @@
     padding: 3px; /* Reduced padding */
   }
   
-  .header svg {
-    width: 8px; /* Smaller icon */
-    height: 8px;
-  }
-  
   .header .text-xl {
     font-size: 0.75rem; /* Smaller text */
   }
   
-  /* Add additional styling as needed */
 }
