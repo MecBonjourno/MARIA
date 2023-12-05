@@ -5,7 +5,7 @@ const CapacidadesSection = () => {
 	return (
 		<section
 			id="capacidades"
-			className="bg-gradient-to-b from-green-400 to-blue-400 text-center py-24 transition duration-500 ease-in-out"
+			className="bg-gradient-to-b from-teal-600 to-teal-500 text-center py-24 transition duration-500 ease-in-out"
 		>
 			<div className="container mx-auto px-6 animate-fade-in-up">
 				<h2 className="text-4xl font-semibold text-white mb-6">Como a MARIA consegue ajudar</h2>
@@ -43,16 +43,6 @@ const CapacidadesSection = () => {
 						você precisa, sempre disponível, de domingo a domingo, garantindo que todos estejam na linha certa e recebam
 						a atenção que realmente precisam.
 					</p>
-					<div className="mt-8 flex justify-center items-center mb-6 shadow-lg rounded-lg overflow-hidden mx-3">
-						<iframe
-							className="w-full h-full" // Garante que o iframe ocupe todo o espaço do contêiner de aspecto
-							src="https://www.youtube.com/embed/VIDEO_ID" // Substitua VIDEO_ID pelo ID real do vídeo
-							title="YouTube video player"
-							frameBorder="0"
-							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-							allowFullScreen
-						></iframe>
-					</div>
 				</div>
 			</div>
 		</section>

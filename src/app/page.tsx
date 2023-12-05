@@ -5,10 +5,10 @@ import WaveAnimation from '@/components/Wave'
 import TypingAnimation from '@/components/TypingAnimation'
 import WaveAnimation2 from '@/components/Wave2'
 import { FaWhatsapp, FaTelegram, FaGlobe, FaLock, FaUserShield, FaShieldAlt, FaHeartbeat } from 'react-icons/fa'
-import CapacidadesSection from '@/components/Capacities'
 import Script from 'next/script'
 import Footer from '@/components/Footer'
 import Disclaimer from '@/components/Disclaimer'
+import CapacidadesSection from '@/components/Capacities'
 
 const LandingPage: React.FC = () => {
 	return (
@@ -28,14 +28,14 @@ const LandingPage: React.FC = () => {
 			<Header />
 			<Disclaimer />
 			<main className="flex-grow">
-				<section className="relative h-screen flex items-center justify-center bg-gradient-to-b from-slate-200 to-teal-600 overflow-hidden ">
+				<section className="relative h-screen flex items-center justify-center bg-gradient-to-b from-slate-200 to-teal-700 overflow-hidden ">
 					<WaveAnimation2 />
 					<div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center p-4 text-white">
 						<TypingAnimation />
 					</div>
 				</section>
 				<section
-					className="flex items-center justify-center bg-gradient-to-b from-10% from-teal-600 via-80% to-green-400 to-95% text-gray-600 body-font"
+					className="flex items-center justify-center bg-gradient-to-b from-10% from-teal-700 to-teal-600 to-95% text-gray-600 body-font"
 					id="maria"
 				>
 					<div className="w-full px-8 py-24 flex flex-col items-center">
@@ -43,8 +43,8 @@ const LandingPage: React.FC = () => {
 						<div className="container mx-3">
 							<h2 className="text-5xl font-semibold text-white text-center">Conheça a MARIA</h2>
 							<p className="mt-4 mx-8 text-xl text-white text-center">
-								<span className="font-bold">MARIA é a Inteligência Artificialde de saúde do povo brasileiro</span>,
-								criada para garantir que todos os cidadãos tenham acesso imediato e de qualidade a informações de saúde
+								<span className="font-bold">MARIA é a Inteligência Artificial de saúde do povo brasileiro</span>, criada
+								para garantir que todos os cidadãos tenham acesso imediato e de qualidade a informações de saúde
 								confiáveis e apoio, a qualquer hora do dia ou da noite. Utilizando tecnologia de ponta em Inteligência
 								Artificial, MARIA funciona como um complemento poderoso ao Sistema Único de Saúde (SUS), oferecendo
 								orientação e assistência imediatas, sem custo algum.
@@ -87,7 +87,7 @@ const LandingPage: React.FC = () => {
 
 				<CapacidadesSection />
 
-				<section id="privacidade" className="bg-gradient-to-b from-30% from-blue-400 via-80% to-green-50 to-95% py-32 ">
+				<section id="privacidade" className="bg-gradient-to-b from-30% from-teal-500 via-80% to-green-50 to-95% py-32 ">
 					<div className="container mx-auto px-6 md:flex md:justify-between md:items-center">
 						<div className="md:w-1/2 lg:w-2/5 mb-8 md:mb-0">
 							<h2 className="text-5xl font-semibold text-white mb-6 mr-1">Segurança e Privacidade</h2>

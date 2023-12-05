@@ -21,7 +21,7 @@ const DisclaimerModal = () => {
 		isVisible && (
 			<div className="disclaimer-modal text-black max-h-screen">
 				<div className="disclaimer-content">
-					<h1 className="text-3xl font-bold my-4">Disclaimer - Informações sobre o uso da MARIA</h1>
+					<h1 className="text-3xl font-bold my-4">AViso! - Informações sobre o uso da MARIA</h1>
 					<p className="text-2xl text-red-600 font-medium my-4">Por favor, leia atentamente antes de usar a MARIA:</p>
 					<ul>
 						<li className="my-2">
