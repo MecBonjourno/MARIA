@@ -52,7 +52,7 @@ const LandingPage: React.FC = () => {
 							<div className="flex flex-col justify-center items-center">
 								<div className="mt-8 ml-4">
 									<a
-										href="https://wa.me/message/QZGH5WWOJL2LE1"
+										href={process.env.MARIA_CONTACT}
 										className="inline-flex items-center bg-green-500 text-white hover:bg-green-700 font-bold uppercase text-sm px-5 py-3 rounded shadow hover:shadow-2xl outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-500"
 										type="button"
 									>
@@ -167,7 +167,7 @@ const LandingPage: React.FC = () => {
 						{/* CTA para interagir com a MARIA ou ler mais histórias */}
 						<div className="mt-4 flex flex-col justify-center items-center sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
 							<a
-								href="https://wa.me/message/QZGH5WWOJL2LE1"
+								href={process.env.MARIA_CONTACT}
 								className="bg-green-500 text-white font-bold py-2 px-6 rounded hover:bg-green-600 transition duration-300 ease-in-out"
 							>
 								Converse com a MARIA

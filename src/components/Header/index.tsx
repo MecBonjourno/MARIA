@@ -33,7 +33,7 @@ const Header: React.FC = () => {
 					<button className="mr-2 text-gray-900 hover:text-green-600" onClick={toggleMenu}>
 						<FaBars size="1em" />
 					</button>
-					<a href="https://wa.me/message/QZGH5WWOJL2LE1">
+					<a href={process.env.MARIA_CONTACT}>
 						<button className="inline-flex items-center text-white bg-green-500 border-0 py-2 px-4 mx-3 my-2 focus:outline-none hover:bg-green-600 rounded text-base transition-colors duration-400">
 							<FaWhatsapp size="1em" className="mr-1" />
 							Converse com a MARIA agora
@@ -58,7 +58,7 @@ const Header: React.FC = () => {
 						A Missão
 					</a>
 				</nav>
-				<a href="https://wa.me/message/QZGH5WWOJL2LE1" className="hidden lg:inline-flex">
+				<a href={process.env.MARIA_CONTACT} className="hidden lg:inline-flex">
 					<button className="inline-flex items-center text-white bg-green-500 border-0 py-2 px-4 mx-3 my-2 focus:outline-none hover:bg-green-600 rounded text-base transition-colors duration-400">
 						<FaWhatsapp size="1em" className="mr-1" />
 						Converse com a MARIA agora
